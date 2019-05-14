@@ -1,57 +1,53 @@
-import React from 'react';
-import {getArticles} from '../api.js'
-import {Link} from '@reach/router'
-
-
+import React from "react";
+import { getArticles } from "../api.js";
+import { Link } from "@reach/router";
 
 class Articles extends React.Component {
+  state = {
+    articleList: []
+  };
 
-state = {
+  render() {
+    return (
+      <div>
+        <h2>Articles</h2>
+        <button className='post-article'> post an article </button>
+        <ul className="article-block">
+          {this.state.articleList &&
+            this.state.articleList.map(article => {
+              return (
+                <Link
+                  to={`/articles/${article.article_id}`}
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  <li key={article.article_id} className="articles">
+                    <h1>{article.title}</h1>
+                    <p>
+                      by <strong>{article.author}</strong>
+                    </p>
+                    <br/>
+                    <p className="article-prev-text">
+                      {article.body.slice(0, 200)}...
+                    </p>
+                    <br/>
+                    <p>
+                      from <strong>{article.topic}</strong>
+                    </p>
+                    <p>comments: {article.comment_count}</p>
+                  </li>
+                </Link>
+              );
+            })}
+        </ul>
+      </div>
+    );
+  }
 
-articleList : []
+  componentDidMount() {
+    getArticles().then(articles => {
+      this.setState({ articleList: articles });
+    });
+  }
 }
 
-render() {
-
-return (
-
-    <div>
-    <h2>Articles</h2>
-    <ul className='article-block'>
-      {this.state.articleList &&
-        this.state.articleList.map(article => {
-          return (
-            <Link to={`/articles/${article.article_id}`} style={{ textDecoration: 'none', color: 'black' }}>
-            <li key={article.article_id} className='articles'>
-                <h1>{article.title}</h1>
-                <p>by <strong>{article.author}</strong></p>
-                <br/>
-                <p className='article-prev-text'>{article.body.slice(0, 200)}...</p>
-                <br/>
-                <p>from <strong>{article.topic}</strong></p>
-                <p>comments: {article.comment_count}</p>
-           
-            </li> 
-            </Link>
-          );
-        })}
-    </ul>
-    
-  </div>
-
-)
-}
-
-componentDidMount() {
-
-getArticles()
-    .then(articles => {
-        this.setState({articleList: articles})
-    })    
-}
-
-
-
-}
-
-export default Articles
+export default Articles;

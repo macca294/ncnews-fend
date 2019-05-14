@@ -19,3 +19,22 @@ export const getArticle = (id) => {
             })
     
     };
+
+    export const getComments = (id) => {
+
+        return axios.get(`${url}articles/${id}/comments` )
+                .then(({data: {comments}}) => {
+                    return comments;
+                })
+        
+        };
+
+    export const getTopics = (query) => {
+
+        return axios.get(`${url}/topics`, { params: query })
+            .then(({data:{topics}})=> {
+                console.log(topics)
+                return topics
+            })
+
+    }

@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header'
-import { Router, Link } from "@reach/router"
+import { Router } from "@reach/router"
 import Articles from './components/Articles'
 import Article from './components/Article'
+import Topics from './components/Topics'
+
 
 
 class App extends React.Component {
@@ -18,6 +20,7 @@ class App extends React.Component {
       <Router>
       <Articles path='/'/>
       <Article path='/articles/:article_id'/>
+      <Topics path='/topics'/>
        </Router> 
       </div>
     );
