@@ -1,19 +1,22 @@
 import React from "react";
 import { Link } from "@reach/router";
 import '../App.css'
+import logo from '../LOGO.png'
+
+
 
 const Header = () => {
   return (
       <header>
     <div className='nav-container'>
-      <h1 id='logo'>NC News</h1>
+      <img src={logo} id='logo' alt=''/>
       <nav>
           <ul className='menu'>
         <Link to="/">  
         <li> Home </li>
         </Link>
         <Link to="/articles">  
-        <li> Articles </li>
+        <li> Topics </li>
         </Link>
         <Link to="/articles">  
         <li> Login </li>

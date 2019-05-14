@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header'
 import { Router, Link } from "@reach/router"
+import Articles from './components/Articles'
+import Article from './components/Article'
 
 
 class App extends React.Component {
@@ -13,7 +15,10 @@ class App extends React.Component {
     return (
       <div className="App">
       <Header />
-      
+      <Router>
+      <Articles path='/'/>
+      <Article path='/articles/:article_id'/>
+       </Router> 
       </div>
     );
   
