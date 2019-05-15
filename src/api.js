@@ -2,14 +2,14 @@ import axios from 'axios'
  const url = 'http://jonnys-ncnews-bend.herokuapp.com/api/'
 
 
-export const getArticles = () => {
-
-return axios.get(`${url}articles` )
+export const getArticles = (query) => {
+return axios.get(`${url}articles`, {params : query})
         .then(({data: {articles}}) => {
             return articles;
         })
 
 };
+
 
 export const getArticle = (id) => {
 
@@ -35,6 +35,14 @@ export const getArticle = (id) => {
             .then(({data:{topics}})=> {
                 console.log(topics)
                 return topics
+            })
+
+    }
+    export const patchArticle = (id, direction) => {
+
+        return axios.patch(`${url}articles/${id}`, direction)
+            .then(article => {
+            return article
             })
 
     }

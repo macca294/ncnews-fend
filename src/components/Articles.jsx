@@ -11,7 +11,7 @@ class Articles extends React.Component {
     return (
       <div>
         <h2>Articles</h2>
-        <button className='post-article'> post an article </button>
+        <button className="post-article"> post an article </button>
         <ul className="article-block">
           {this.state.articleList &&
             this.state.articleList.map(article => {
@@ -25,14 +25,14 @@ class Articles extends React.Component {
                     <p>
                       by <strong>{article.author}</strong>
                     </p>
-                    <br/>
-                    <p className="article-prev-text">
-                      {article.body.slice(0, 200)}...
-                    </p>
-                    <br/>
                     <p>
                       from <strong>{article.topic}</strong>
                     </p>
+                    <br />
+                    <p className="article-prev-text">
+                      {article.body.slice(0, 200)}...
+                    </p>
+                    <br />
                     <p>comments: {article.comment_count}</p>
                   </li>
                 </Link>
@@ -44,7 +44,8 @@ class Articles extends React.Component {
   }
 
   componentDidMount() {
-    getArticles().then(articles => {
+      const query = { topic: this.props.topic }
+    getArticles(query).then(articles => {
       this.setState({ articleList: articles });
     });
   }

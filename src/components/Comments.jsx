@@ -16,7 +16,9 @@ class Comments extends React.Component {
           {this.state.comments &&
             this.state.comments.map(comment => {
               return (
+                
                 <li key={comment.comment_id} className="comment">
+                <button className = 'delete-button'> remove </button>
                   <h1>{comment.title}</h1>
                   <p>
                  <strong>{comment.author}</strong> says...
@@ -26,11 +28,12 @@ class Comments extends React.Component {
                   <br />
                   <p>votes: {comment.votes}</p>
         
-<div class="rating">
-		<i class="vote-button-up rating-up fa fa-thumbs-o-up" aria-hidden="true"></i>
-		<i class="vote-button-down rating-down fa fa-thumbs-o-down" aria-hidden="true"></i>
+<div className="rating">
+		<i className="vote-button-up rating-up fa fa-thumbs-o-up" aria-hidden="true"></i>
+		<i className="vote-button-down rating-down fa fa-thumbs-o-down" aria-hidden="true"></i>
 		
 	</div>
+    
                 </li>
               );
             })}

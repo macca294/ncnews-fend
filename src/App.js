@@ -5,6 +5,7 @@ import { Router } from "@reach/router"
 import Articles from './components/Articles'
 import Article from './components/Article'
 import Topics from './components/Topics'
+import Login from './components/Login'
 
 
 
@@ -18,9 +19,11 @@ class App extends React.Component {
       <div className="App">
       <Header />
       <Router>
-      <Articles path='/'/>
+      <Articles path='/articles'/>
+      <Articles path='/articles/topic/:topic'/>
       <Article path='/articles/:article_id'/>
       <Topics path='/topics'/>
+      <Login path='/login'/> 
        </Router> 
       </div>
     );

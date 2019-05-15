@@ -12,7 +12,7 @@ const Header = () => {
       <img src={logo} id='logo' alt=''/>
       <nav>
           <ul className='menu'>
-        <Link to="/">  
+        <Link to="/articles">  
         <li> Home </li>
         </Link>
         <Link to="/topics">  
