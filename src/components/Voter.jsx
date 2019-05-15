@@ -1,5 +1,5 @@
 import React from "react";
-import { patchComment } from "../api";
+import { patchComment, patchArticle } from "../api";
 
 class Voter extends React.Component {
   state = {
@@ -29,8 +29,13 @@ class Voter extends React.Component {
     );
   }
 handleVote = (id, direction) => {
+if (this.props.type === 'article'){
+    patchArticle(id, {inc_votes: direction })
+}
+else {
+   patchComment(id, {inc_votes: direction})
+}
 
-patchComment(id, {inc_votes: direction})
 this.setState({vote: this.state.vote + direction})
 }
 
