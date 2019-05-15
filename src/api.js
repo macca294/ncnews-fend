@@ -46,3 +46,13 @@ export const getArticle = (id) => {
             })
 
     }
+
+    export const patchComment = (id, direction) => {
+        
+        return axios.patch(`${url}comments/${id}`, direction)
+            .then(comment => {
+                console.log(comment)
+            return comment
+            })
+
+    }

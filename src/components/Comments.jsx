@@ -1,6 +1,7 @@
 import React from "react";
 import { getComments } from "../api.js";
-import '../../node_modules/font-awesome/css/font-awesome.min.css' 
+import "../../node_modules/font-awesome/css/font-awesome.min.css";
+import Voter from './Voter'
 
 class Comments extends React.Component {
   state = {
@@ -11,29 +12,22 @@ class Comments extends React.Component {
     return (
       <div>
         <h2>Comments</h2>
-        <button className='post-comment'> post a comment </button>
+        <button className="post-comment"> post a comment </button>
         <ul className="comments-block">
           {this.state.comments &&
             this.state.comments.map(comment => {
               return (
-                
                 <li key={comment.comment_id} className="comment">
-                <button className = 'delete-button'> remove </button>
+                  <button className="delete-button"> remove </button>
                   <h1>{comment.title}</h1>
                   <p>
-                 <strong>{comment.author}</strong> says...
+                    <strong>{comment.author}</strong> says...
                   </p>
                   <br />
                   <p>{comment.body}...</p>
-                  <br />
-                  <p>votes: {comment.votes}</p>
-        
-<div className="rating">
-		<i className="vote-button-up rating-up fa fa-thumbs-o-up" aria-hidden="true"></i>
-		<i className="vote-button-down rating-down fa fa-thumbs-o-down" aria-hidden="true"></i>
-		
-	</div>
-    
+                  <div className="rating">
+                    <Voter votes={comment.votes} id={comment.comment_id} />
+                     </div>
                 </li>
               );
             })}
@@ -47,6 +41,7 @@ class Comments extends React.Component {
       this.setState({ comments: comments });
     });
   }
+
 }
 
 export default Comments;
