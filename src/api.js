@@ -57,6 +57,15 @@ export const getArticle = (id) => {
 
     }
 
+    export const removeComment = (id) => {
+
+        return axios.delete(`${url}comments/${id}`)
+        .then(({data:{comment}})=> {
+            console.log(comment)
+            return comment
+        })
+    }
+
     export const getUsers = (username) => {
 
         return axios.get(`${url}users/${username}`)

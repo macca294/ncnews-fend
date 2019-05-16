@@ -22,7 +22,7 @@ class App extends React.Component {
       <Router>
       <Articles path='/articles'/>
       <Articles path='/articles/topic/:topic'/>
-      <Article path='/articles/:article_id'/>
+      <Article path='/articles/:article_id' loggedInUser={this.state.loggedInUser}/>
       <Topics path='/topics'/>
       <Login path='/login' userLoggedIn={this.loginUser} /> 
        </Router> 

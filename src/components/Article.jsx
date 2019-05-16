@@ -8,7 +8,7 @@ class Article extends React.Component {
     article: [],
   };
 
-  render() {
+  render(props) {
     const {article} = this.state
     return (
         
@@ -22,7 +22,7 @@ class Article extends React.Component {
         <Voter votes = {article.votes} id={article.article_id} type={'article'}/>
         </div>
         <div className="article-comments">
-          <Comments id={this.props.article_id} />
+          <Comments id={this.props.article_id} loggedInUser={this.props.loggedInUser} />
         </div>
       </div>
     );

@@ -1,14 +1,15 @@
 import React from "react";
-import { getComments } from "../api.js";
+import { getComments, removeComment } from "../api.js";
 import "../../node_modules/font-awesome/css/font-awesome.min.css";
 import Voter from './Voter'
+
 
 class Comments extends React.Component {
   state = {
     comments: []
   };
 
-  render() {
+  render(props) {
     return (
       <div>
         <h2>Comments</h2>
@@ -18,7 +19,7 @@ class Comments extends React.Component {
             this.state.comments.map(comment => {
               return (
                 <li key={comment.comment_id} className="comment">
-                  <button className="delete-button"> remove </button>
+                  {this.props.loggedInUser === comment.author && <button id='comment.comment_id'className="delete-button" onClick={() =>{this.handleDelete(comment.comment_id)}}> remove </button>}
                   <h1>{comment.title}</h1>
                   <p>
                     <strong>{comment.author}</strong> says...
@@ -42,6 +43,24 @@ class Comments extends React.Component {
     });
   }
 
+
+  handleDelete = (id) => {
+    console.log(id)
+    removeComment(id)
+      .then(() => {
+  
+     const filteredComments =  this.state.comments.filter(comment => {
+      return comment.comment_id !== id 
+      }) 
+      this.setState({comments: filteredComments})
+      
+      })
+}
 }
 
 export default Comments;
+
+
+
+   
+
