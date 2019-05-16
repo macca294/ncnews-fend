@@ -11,7 +11,6 @@ class Articles extends React.Component {
     return (
       <div>
         <h2>Articles</h2>
-        <button className="post-article"> post an article </button>
         <ul className="article-block">
           {this.state.articleList &&
             this.state.articleList.map(article => {

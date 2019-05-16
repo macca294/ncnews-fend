@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header'
-import { Router } from "@reach/router"
+import { Router, navigate } from "@reach/router"
 import Articles from './components/Articles'
 import Article from './components/Article'
 import Topics from './components/Topics'
@@ -15,15 +15,16 @@ class App extends React.Component {
   };
 
   render(){
+    console.log(this.state.loggedInUser)
     return (
       <div className="App">
-      <Header />
+      <Header loggedInUser={this.state.loggedInUser} logOutUser={this.logOutUser}/>
       <Router>
       <Articles path='/articles'/>
       <Articles path='/articles/topic/:topic'/>
       <Article path='/articles/:article_id'/>
       <Topics path='/topics'/>
-      <Login path='/login'/> 
+      <Login path='/login' userLoggedIn={this.loginUser} /> 
        </Router> 
       </div>
     );
@@ -32,10 +33,14 @@ class App extends React.Component {
   }
  
   loginUser = username => {
-    this.setState({})
+    this.setState({loggedInUser : username}, ()=>{navigate('/articles')})
+
 
   }
 
+  logOutUser = () => {
+    this.setState({loggedInUser : ''}, ()=>{navigate('/login')})
+  }
 }
 
 export default App;

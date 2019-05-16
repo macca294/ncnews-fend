@@ -56,3 +56,12 @@ export const getArticle = (id) => {
             })
 
     }
+
+    export const getUsers = (username) => {
+
+        return axios.get(`${url}users/${username}`)
+            .then(({data:{user}})=> {
+                console.log(user)
+                return user
+            })
+    }
