@@ -1,17 +1,17 @@
 import React from "react";
 import { getArticle } from "../api.js";
 import Comments from "../components/Comments";
-import Voter from './Voter';
+import Voter from "./Voter";
+import { navigate } from "@reach/router";
 
 class Article extends React.Component {
   state = {
-    article: [],
+    article: []
   };
 
   render(props) {
-    const {article} = this.state
+    const { article } = this.state;
     return (
-        
       <div>
         <div className="article">
           <h1>{article.title}</h1>
@@ -19,24 +19,29 @@ class Article extends React.Component {
           <p>by {article.author}</p>
           <br />
           <p>{article.body}</p>
-        <Voter votes = {article.votes} id={article.article_id} type={'article'}/>
+          <Voter
+            votes={article.votes}
+            id={article.article_id}
+            type={"article"}
+          />
         </div>
         <div className="article-comments">
-          <Comments id={this.props.article_id} loggedInUser={this.props.loggedInUser} />
+          <Comments
+            id={this.props.article_id}
+            loggedInUser={this.props.loggedInUser}
+          />
         </div>
       </div>
     );
   }
 
   componentDidMount() {
-    getArticle(this.props.article_id).then(article => {
-      this.setState({ article: article });
-    });
-
-    }  
-    
-
+    getArticle(this.props.article_id)
+      .then(article => {
+        this.setState({ article: article });
+      })
+      .catch(error => navigate("/error", {state : {displayerror: 'article not found'}}));
+  }
 }
-
 
 export default Article;

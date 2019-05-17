@@ -1,5 +1,5 @@
 import React from "react";
-import { getArticles } from "../api.js";
+import { getArticles, sortBy } from "../api.js";
 import { Link } from "@reach/router";
 
 class Articles extends React.Component {
@@ -8,14 +8,30 @@ class Articles extends React.Component {
   };
 
   render() {
+    console.log(this.props.location)
     return (
+        
       <div>
-        <h2>Articles</h2>
-        <ul className="article-block" key='articles'>
+        <h2>Latest Articles</h2>
+        <div className="sort-div">
+          <h4>sort articles by:</h4>
+
+          <button onClick={() => this.handleSort("?sort_by=created_at")}>
+            date
+          </button>
+          <button onClick={() => this.handleSort("?sort_by=comment_count")}>
+            comment count
+          </button>
+          <button onClick={() => this.handleSort("?sort_by=votes")}>
+            votes
+          </button>
+        </div>
+        <ul className="article-block" key="articles">
           {this.state.articleList &&
             this.state.articleList.map(article => {
               return (
-                <Link key={article.article_id} 
+                <Link
+                  key={article.article_id}
                   to={`/articles/${article.article_id}`}
                   style={{ textDecoration: "none", color: "black" }}
                 >
@@ -43,8 +59,14 @@ class Articles extends React.Component {
   }
 
   componentDidMount() {
-      const query = { topic: this.props.topic }
+    const query = { topic: this.props.topic };
     getArticles(query).then(articles => {
+      this.setState({ articleList: articles });
+    });
+  }
+
+  handleSort(query) {
+    sortBy(query).then(articles => {
       this.setState({ articleList: articles });
     });
   }

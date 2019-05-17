@@ -6,7 +6,7 @@ import Articles from './components/Articles'
 import Article from './components/Article'
 import Topics from './components/Topics'
 import Login from './components/Login'
-import PostComment from './components/PostComment';
+import Error from './components/Error'
 
 
 
@@ -26,6 +26,7 @@ class App extends React.Component {
       <Article path='/articles/:article_id' loggedInUser={this.state.loggedInUser}/>
       <Topics path='/topics'/>
       <Login path='/login' logInUser={this.loginUser} /> 
+      <Error path='/error'/>
        </Router> 
       </div>
     );

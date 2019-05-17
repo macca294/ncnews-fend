@@ -107,7 +107,7 @@ nav {
 }
 
 .article-block li {
-
+  display: grid;
   list-style: none;
   border-style: solid;
   border-color: rgb(104, 104, 104);
@@ -180,6 +180,11 @@ nav {
 
 }
 
+.article-comments div p {
+
+  margin-left: 40px;
+}
+
 .topic {
 
   list-style: none;
@@ -230,17 +235,18 @@ nav {
 }
 
 .login-div {
-  
+
   margin-left: 40px;
 }
+
 .login-div h2 {
-margin : 20px;
-margin-top: 5px;
+  margin: 20px;
+  margin-top: 5px;
 }
 
 .login-div input {
 
-margin: 10px;
+  margin: 10px;
 
 }
 
@@ -249,4 +255,10 @@ margin: 10px;
   float: right;
   color: rgb(238, 142, 142);
   background-color: white;
+}
+
+.sort-div {
+
+  margin-left: 40px;
+
 }

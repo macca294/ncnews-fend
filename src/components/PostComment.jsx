@@ -9,6 +9,7 @@ export default class PostComment extends Component {
   render(props) {
     return (
       <div className="post-comment">
+        <p>post a comment </p>
         <form action="" onSubmit={this.handleSubmit}>
           <input
             id="commentInput"
@@ -16,7 +17,7 @@ export default class PostComment extends Component {
             value={this.state.userInput}
             onChange={this.handleInput}
           />
-          <button>add a comment</button>
+          <button disabled={!this.state.userInput}>submit</button>
         </form>
       </div>
     );
