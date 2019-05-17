@@ -24,7 +24,7 @@ const Header = props => {
                 <div> <li>
                 {props.loggedInUser}
                 </li>
-                <button className = 'logout-button' onClick= {props.logOutUser}>  Logout</button></div>
+                <button className = 'logout-button' onClick= {props.logOutUser}>Logout</button></div>
             )}
           </ul>
         </nav>

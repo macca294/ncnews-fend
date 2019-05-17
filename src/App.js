@@ -6,6 +6,7 @@ import Articles from './components/Articles'
 import Article from './components/Article'
 import Topics from './components/Topics'
 import Login from './components/Login'
+import PostComment from './components/PostComment';
 
 
 
@@ -24,7 +25,7 @@ class App extends React.Component {
       <Articles path='/articles/topic/:topic'/>
       <Article path='/articles/:article_id' loggedInUser={this.state.loggedInUser}/>
       <Topics path='/topics'/>
-      <Login path='/login' userLoggedIn={this.loginUser} /> 
+      <Login path='/login' logInUser={this.loginUser} /> 
        </Router> 
       </div>
     );
@@ -39,7 +40,7 @@ class App extends React.Component {
   }
 
   logOutUser = () => {
-    this.setState({loggedInUser : ''}, ()=>{navigate('/login')})
+    this.setState({loggedInUser : ''}, ()=>navigate('/login'))
   }
 }
 

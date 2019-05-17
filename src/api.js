@@ -46,6 +46,13 @@ export const getArticle = (id) => {
             })
 
     }
+    export const postNewComment = (id, body) => {
+        return axios.post(`${url}articles/${id}/comments`, body)
+            .then(({data:{comment}}) => {
+            return comment
+            })
+
+    }
 
     export const patchComment = (id, direction) => {
         

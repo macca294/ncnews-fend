@@ -36,7 +36,7 @@ this.setState({usernameInput: e.target.value})
 handleSumbit = (e) => {
     e.preventDefault()
     getUsers(this.state.usernameInput).then(user => {
-        return this.props.userLoggedIn(user.username)
+        return this.props.logInUser(user.username)
     })
 }
 

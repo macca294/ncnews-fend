@@ -11,15 +11,15 @@ class Articles extends React.Component {
     return (
       <div>
         <h2>Articles</h2>
-        <ul className="article-block">
+        <ul className="article-block" key='articles'>
           {this.state.articleList &&
             this.state.articleList.map(article => {
               return (
-                <Link
+                <Link key={article.article_id} 
                   to={`/articles/${article.article_id}`}
                   style={{ textDecoration: "none", color: "black" }}
                 >
-                  <li key={article.article_id} className="articles">
+                  <li className="articles">
                     <h1>{article.title}</h1>
                     <p>
                       by <strong>{article.author}</strong>
