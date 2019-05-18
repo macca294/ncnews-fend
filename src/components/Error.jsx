@@ -1,10 +1,10 @@
 import React from "react";
 
-const Error = () => {
+const Error = (props) => {
 
     return(
 <div> 
-    <h1>ooppss</h1>
+    <h1>whoops! Sorry {props.location.state.displayerror}</h1>
 </div>
 
     )

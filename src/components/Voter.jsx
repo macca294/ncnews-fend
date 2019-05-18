@@ -15,7 +15,7 @@ class Voter extends React.Component {
           onClick={() => {
             this.handleVote(this.props.id, 1);
           }}
-          disabled={this.state.vote === 1}
+          disabled={this.state.vote === 1 || !this.props.loggedInUser}
         />
         <button
           className="vote-button-down rating-down fa fa-thumbs-o-down"
@@ -23,7 +23,7 @@ class Voter extends React.Component {
           onClick={() => {
             this.handleVote(this.props.id, -1);
           }}
-          disabled={this.state.vote === -1}
+          disabled={this.state.vote === -1 || !this.props.loggedInUser}
         />
       </div>
     );

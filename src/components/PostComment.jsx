@@ -9,14 +9,14 @@ export default class PostComment extends Component {
   render(props) {
     return (
       <div className="post-comment">
-        <p>post a comment </p>
+        <h4>post a comment </h4>
         <form action="" onSubmit={this.handleSubmit}>
-          <input
-            id="commentInput"
+          
+          <textarea  id="commentInput"
             type="text"
             value={this.state.userInput}
-            onChange={this.handleInput}
-          />
+            onChange={this.handleInput} name="Text1" cols="40" rows="5"></textarea>
+          
           <button disabled={!this.state.userInput}>submit</button>
         </form>
       </div>

@@ -8,14 +8,14 @@ class Articles extends React.Component {
   };
 
   render() {
-    console.log(this.props.location)
+   
     return (
         
       <div>
-        <h2>Latest Articles</h2>
+        {/* <h2>Latest Articles</h2> */}
+        
         <div className="sort-div">
-          <h4>sort articles by:</h4>
-
+          <p>sort articles by:</p>
           <button onClick={() => this.handleSort("?sort_by=created_at")}>
             date
           </button>
@@ -45,10 +45,10 @@ class Articles extends React.Component {
                     </p>
                     <br />
                     <p className="article-prev-text">
-                      {article.body.slice(0, 200)}...
+                      {article.body.slice(0, 150)}...
                     </p>
-                    <br />
                     <p>comments: {article.comment_count}</p>
+                    <p>votes: {article.votes}</p>
                   </li>
                 </Link>
               );

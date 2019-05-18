@@ -15,14 +15,15 @@ class Article extends React.Component {
       <div>
         <div className="article">
           <h1>{article.title}</h1>
-          <br />
           <p>by {article.author}</p>
+          <p>posted: {article.created_at}</p>
           <br />
           <p>{article.body}</p>
           <Voter
             votes={article.votes}
             id={article.article_id}
             type={"article"}
+            loggedInUser={this.props.loggedInUser}
           />
         </div>
         <div className="article-comments">
@@ -40,7 +41,7 @@ class Article extends React.Component {
       .then(article => {
         this.setState({ article: article });
       })
-      .catch(error => navigate("/error", {state : {displayerror: 'article not found'}}));
+      .catch(error => navigate("/error", {state : {displayerror: '- article not found'}}));
   }
 }
 

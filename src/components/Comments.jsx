@@ -10,7 +10,6 @@ class Comments extends React.Component {
   };
 
   render(props) {
-    console.log(this.state.comments);
     return (
       <div>
         <h2>Comments</h2>
@@ -21,7 +20,7 @@ class Comments extends React.Component {
             addComment={this.addComment}
           />
         ) : (
-          <p>Login to post a comment</p>
+          <h5>login to vote and post a comment</h5>
         )}
         <ul className="comments-block">
           {this.state.comments &&
@@ -40,16 +39,12 @@ class Comments extends React.Component {
                     </button>
                   )}
                   <h1>{comment.title}</h1>
-                  <p>
-                    <strong>{comment.author}</strong> says...
-                  </p>
+                    <p><strong>{comment.author}</strong> says...</p>
                   <br />
                   <p>{comment.body}</p>
-                  {this.props.loggedInUser && (
                     <div className="rating">
-                      <Voter votes={comment.votes} id={comment.comment_id} />
+                      <Voter votes={comment.votes} id={comment.comment_id}  loggedInUser={this.props.loggedInUser} />
                     </div>
-                  )}
                 </li>
               );
             })}
@@ -65,7 +60,6 @@ class Comments extends React.Component {
   }
 
   handleDelete = id => {
-    console.log(id);
     removeComment(id).then(() => {
       const filteredComments = this.state.comments.filter(comment => {
         return comment.comment_id !== id;
@@ -74,7 +68,6 @@ class Comments extends React.Component {
     });
   };
   addComment = comment => {
-    console.log(comment);
     this.setState(prevState => {
       const newComments = prevState.comments.map(comment => {
         return { ...comment };

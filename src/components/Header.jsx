@@ -11,7 +11,7 @@ const Header = props => {
         <nav>
           <ul className="menu">
             <Link to="/articles">
-              <li> Home </li>
+              <li> Articles </li>
             </Link>
             <Link to="/topics">
               <li> Topics </li>

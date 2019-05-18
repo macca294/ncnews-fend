@@ -10,21 +10,19 @@ class Topics extends React.Component {
 
   render() {
     return (
-      <div>
-        <ul className="topics-block">
+      <div className="topics-block">
+        <ul>
           {this.state.topics &&
             this.state.topics.map(topic => {
               return (
                 <li key={topic.slug} className="topic">
-                  <Link to={`/articles/topic/${topic.slug}`} style={ {textDecoration: "none", color: "black" }}>
-                    <h3>{topic.slug}</h3>
+                  <Link to={`/articles/topic/${topic.slug}`} style={ {textDecoration: "none", color: "black"}} >
+                    <h4>{topic.slug}</h4>
                   </Link>
-                <br/>
                 </li>
               );
             })}
         </ul>
-        <br/>
         <Articles/>
       </div>
     );
@@ -33,8 +31,6 @@ class Topics extends React.Component {
   componentDidMount() {
     getTopics().then(topics => {
       this.setState({ topics: topics });
-
-      console.log(topics);
     });
   }
 }
