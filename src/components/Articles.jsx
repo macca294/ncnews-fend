@@ -8,12 +8,8 @@ class Articles extends React.Component {
   };
 
   render() {
-   
     return (
-        
       <div>
-        {/* <h2>Latest Articles</h2> */}
-        
         <div className="sort-div">
           <p>sort articles by:</p>
           <button onClick={() => this.handleSort("?sort_by=created_at")}>
@@ -43,10 +39,9 @@ class Articles extends React.Component {
                     <p>
                       from <strong>{article.topic}</strong>
                     </p>
-                    <br />
-                    <p className="article-prev-text">
-                      {article.body.slice(0, 150)}...
-                    </p>
+                    <h6 className="article-prev-text">
+                      {article.body.slice(0, 200)}...
+                    </h6>
                     <p>comments: {article.comment_count}</p>
                     <p>votes: {article.votes}</p>
                   </li>

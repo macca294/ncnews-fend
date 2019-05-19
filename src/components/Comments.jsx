@@ -39,12 +39,18 @@ class Comments extends React.Component {
                     </button>
                   )}
                   <h1>{comment.title}</h1>
-                    <p><strong>{comment.author}</strong> says...</p>
+                  <p>
+                    <strong>{comment.author}</strong> says...
+                  </p>
                   <br />
                   <p>{comment.body}</p>
-                    <div className="rating">
-                      <Voter votes={comment.votes} id={comment.comment_id}  loggedInUser={this.props.loggedInUser} />
-                    </div>
+                  <div className="rating">
+                    <Voter
+                      votes={comment.votes}
+                      id={comment.comment_id}
+                      loggedInUser={this.props.loggedInUser}
+                    />
+                  </div>
                 </li>
               );
             })}

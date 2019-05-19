@@ -41,7 +41,9 @@ class Article extends React.Component {
       .then(article => {
         this.setState({ article: article });
       })
-      .catch(error => navigate("/error", {state : {displayerror: '- article not found'}}));
+      .catch(error =>
+        navigate("/error", { state: { displayerror: "- article not found" } })
+      );
   }
 }
 

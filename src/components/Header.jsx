@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@reach/router";
 import "../App.css";
-import logo from "../LOGO.png";
+import logo from "../LOGO2.png";
 
 const Header = props => {
   return (
@@ -21,10 +21,12 @@ const Header = props => {
                 <li> Login </li>
               </Link>
             ) : (
-                <div> <li>
-                {props.loggedInUser}
-                </li>
-                <button className = 'logout-button' onClick= {props.logOutUser}>Logout</button></div>
+              <li>
+                user: {props.loggedInUser}
+                <button className="logout-button" onClick={props.logOutUser}>
+                  Logout
+                </button>
+              </li>
             )}
           </ul>
         </nav>

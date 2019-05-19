@@ -12,11 +12,12 @@ class Login extends React.Component {
     return (
       <div>
         <div className="login-div">
-          <h3>Enter Username</h3>
-            <p>e.g - jessjelly</p>
+          <h4>Enter Username</h4>
+            
           <form onSubmit={this.handleSumbit}>
             <input type="text" onChange={this.handleInput} />
             <button disabled={!this.state.usernameInput}>login</button>
+            <p>e.g username - jessjelly</p>
           </form>
         </div>
         <Articles />
