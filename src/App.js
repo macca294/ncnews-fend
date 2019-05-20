@@ -16,7 +16,7 @@ class App extends React.Component {
   };
 
   render(){
-    console.log(this.state.loggedInUser)
+
     return (
       <div className="App">
       <Header loggedInUser={this.state.loggedInUser} logOutUser={this.logOutUser}/>
@@ -51,6 +51,7 @@ class App extends React.Component {
 
   logOutUser = () => {
     this.setState({loggedInUser : ''}, ()=>navigate('/login'))
+    localStorage.setItem('loggedInUser', '')
   }
 }
 

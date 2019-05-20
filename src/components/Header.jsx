@@ -22,15 +22,15 @@ const Header = props => {
               </Link>
             ) : (
               <div>
-              <li>
-                user: {props.loggedInUser}
-                <button className="logout-button" onClick={props.logOutUser}>
-                  Logout
-                </button>
-              </li>
-              <Link to='/user'>
-              <li>view profile</li>
-              </Link>
+                <li>
+                  user: {props.loggedInUser}
+                  <button className="logout-button" onClick={props.logOutUser}>
+                    Logout
+                  </button>
+                </li>
+                <Link to="/user">
+                  <li>view profile</li>
+                </Link>
               </div>
             )}
           </ul>

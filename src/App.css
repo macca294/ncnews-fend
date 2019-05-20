@@ -52,27 +52,29 @@ header {
   color: rgb(255, 63, 63)
 }
 
-.menu li {
 
-  display: inline-flex;
-  margin-right: 15vw;
+
+.menu li {
+  padding: 0;
+  margin-right: 4vw;
+  margin-top: 2vh;
   font-size: 1.25em;
-  color: rgb(236, 236, 236)
+  color: rgb(255, 255, 255)
 }
 
 
 #logo {
-  width: 12em;
-  height: 6em;
+  width: 15em;
+  height: 7em;
   padding-bottom: 1vh;
 
 }
 
 header::after {
 
-  content: "";
-  display: table;
-  clear: both;
+ content: "";
+ display: table;
+ clear: both; 
 
 }
 
@@ -317,8 +319,7 @@ h5 {
 
 .profile{
   display: inline-block;
-  /* align-content: center; */
-  /* margin-right: 10vw; */
+  margin: 3vw;
 }
 .profile p {
   text-align: center;
@@ -330,5 +331,6 @@ h5 {
 }
 
 .profile img {
-  text-align: center
+  text-align: center;
+  height: 40vh;
 }

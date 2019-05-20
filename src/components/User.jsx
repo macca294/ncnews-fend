@@ -1,39 +1,30 @@
-import React, { Component } from 'react'
-import {navigate} from '@reach/router'
-import { getUsers } from '../api' 
+import React, { Component } from "react";
+import { navigate } from "@reach/router";
+import { getUsers } from "../api";
 
 export default class User extends Component {
-
-    state = {
-    user: []    
-    }
+  state = {
+    user: []
+  };
 
   render(props) {
-      console.log(this.state)
-      const { user } = this.state;
+    const { user } = this.state;
     return (
-      <div className='profile'>
+      <div className="profile">
         <h1>{user.username}'s profile!</h1>
-        <img src={user.avatar_url} alt="no profile pic"/>
-        <p>Name :  {user.name}</p>
+        <img src={user.avatar_url} alt="no profile pic" />
+        <p>Name : {user.name}</p>
       </div>
-    )
+    );
   }
 
-
-componentDidMount() {
-   console.log(this.props.loggedInUser)
-getUsers(this.props.loggedInUser)
-    .then((user)=>{
-        // console.log(user)
-        this.setState({user: user})    
-
-}).catch(error =>
-    navigate("/error", { state: { displayerror: "- user not found" } })
-  );  
-
+  componentDidMount() {
+    getUsers(this.props.loggedInUser)
+      .then(user => {
+        this.setState({ user: user });
+      })
+      .catch(error =>
+        navigate("/error", { state: { displayerror: "- user not found" } })
+      );
+  }
 }
-
-}
-
-
