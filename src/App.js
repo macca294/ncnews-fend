@@ -7,7 +7,7 @@ import Article from './components/Article'
 import Topics from './components/Topics'
 import Login from './components/Login'
 import Error from './components/Error'
-
+import User from './components/User'
 
 
 class App extends React.Component {
@@ -26,6 +26,7 @@ class App extends React.Component {
       <Article path='/articles/:article_id' loggedInUser={this.state.loggedInUser}/>
       <Topics path='/topics'/>
       <Login path='/login' logInUser={this.loginUser} /> 
+      <User path='/user' loggedInUser={this.state.loggedInUser}/>
       <Error path='/error'/>
        </Router> 
       </div>
@@ -33,10 +34,18 @@ class App extends React.Component {
   
 
   }
+
+  componentDidMount() {
+
+    const recentUser = localStorage.getItem('loggedInUser');
+    if (recentUser) this.setState({ loggedInUser: recentUser });
+
+  }
  
   loginUser = username => {
     this.setState({loggedInUser : username}, ()=>{navigate('/articles')})
-
+    localStorage.setItem('loggedInUser', this.state.loggedInUser) 
+    
 
   }
 

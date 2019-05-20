@@ -32,9 +32,12 @@ class Login extends React.Component {
   handleSumbit = e => {
     e.preventDefault();
     getUsers(this.state.usernameInput).then(user => {
+     
       return this.props.logInUser(user.username);
+      
     }).catch(error => navigate("/error", {state : {displayerror: `- user not found`}}))
   };
 }
+
 
 export default Login;

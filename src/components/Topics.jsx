@@ -1,6 +1,6 @@
 import React from "react";
 import { getTopics } from "../api.js";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import Articles from "./Articles";
 
 class Topics extends React.Component {
@@ -32,9 +32,15 @@ class Topics extends React.Component {
   }
 
   componentDidMount() {
-    getTopics().then(topics => {
-      this.setState({ topics: topics });
-    });
+    getTopics()
+      .then(topics => {
+        this.setState({ topics: topics });
+      })
+      .catch(error =>
+        navigate("/error", {
+          state: { displayerror: "- topic does not exist" }
+        })
+      );
   }
 }
 

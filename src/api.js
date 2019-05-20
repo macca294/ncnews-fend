@@ -66,7 +66,6 @@ export const getTopics = (query) => {
                 topics
             }
         }) => {
-            console.log(topics)
             return topics
         })
 
@@ -95,7 +94,6 @@ export const patchComment = (id, direction) => {
 
     return axios.patch(`${url}comments/${id}`, direction)
         .then(comment => {
-            console.log(comment)
             return comment
         })
 
@@ -109,7 +107,6 @@ export const removeComment = (id) => {
                 comment
             }
         }) => {
-            console.log(comment)
             return comment
         })
 }
@@ -122,7 +119,6 @@ export const getUsers = (username) => {
                 user
             }
         }) => {
-            console.log(user)
             return user
         })
 }

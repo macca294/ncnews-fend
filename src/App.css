@@ -3,7 +3,7 @@ body {
   text-align: left;
   margin: 0px;
   font-family: Trajan;
-  font-size:  2.3vmin;
+  font-size: 2.3vmin;
   background-color: rgb(248, 246, 246);
 
 }
@@ -25,10 +25,10 @@ h4 {
 }
 
 h6 {
- 
-    margin: 1em;
-    font-size: 1.5em;
-    color: rgb(59, 59, 59); 
+
+  margin: 1em;
+  font-size: 1.5em;
+  color: rgb(39, 39, 39);
 
 
 }
@@ -54,7 +54,7 @@ header {
 
 .menu li {
 
-  display: grid;
+  display: inline-flex;
   margin-right: 15vw;
   font-size: 1.25em;
   color: rgb(236, 236, 236)
@@ -192,32 +192,28 @@ h5 {
   margin: 0;
   padding: 0;
   list-style: none;
-  
+
 
 }
+
 .topics-block ul h2 {
-  
+
   list-style: none;
   font-family: inherit;
-  color: rgb(189, 39, 39);
+  color: rgb(36, 2, 2);
   display: inline-block;
 
 }
+
 .topic {
+  background-color: rgb(255, 255, 255);
   margin: 0;
   text-align: center;
-  font-size: 1vw;
-  
+  font-size: 1.25vw;
   border-block-end: solid;
   border-width: 1px;
-  box-shadow: 2px 2px 2px rgb(109, 108, 108);
+  box-shadow: 1px 1px 1px rgb(255, 67, 67);
   margin-bottom: 1em;
-  
-  
-
-
- 
-
 
 }
 
@@ -249,15 +245,16 @@ h5 {
 }
 
 .post-comment textarea {
-  
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 
   height: 5vw;
   size: 80vw;
   font-size: 1em;
 }
+
 .post-comment button {
   display: block;
   margin-left: auto;
@@ -271,7 +268,7 @@ h5 {
 }
 
 .login-div p {
-  
+
   font-size: 1em;
   font-style: italic;
   color: grey;
@@ -280,14 +277,16 @@ h5 {
 
 .login-div h4 {
   text-align: right;
-  margin: 28px;
+  margin: 0.5rem;
+  margin-right: 8vw;
 }
 
 .login-div form input {
-  margin: 0;
-  height: 1vh;
-  padding: 1vw;
+  margin: 0.5rem;
+  padding: 0.25em;
   font-size: 1.5em;
+  border: solid;
+  border-width: 1px;
 
 }
 
@@ -314,4 +313,22 @@ h5 {
 .sort-div button {
   margin-left: 1vw;
   font-size: .75em;
+}
+
+.profile{
+  display: inline-block;
+  /* align-content: center; */
+  /* margin-right: 10vw; */
+}
+.profile p {
+  text-align: center;
+  font-size: 2em;
+}
+
+.profile h1 {
+  text-align: center;
+}
+
+.profile img {
+  text-align: center
 }
