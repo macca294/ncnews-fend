@@ -21,9 +21,9 @@ const Header = props => {
                 <li> Login </li>
               </Link>
             ) : (
-              <div>
+              <div className='loggedIn'>
                 <li>
-                  user: {props.loggedInUser}
+                  hi {props.loggedInUser}!
                   <button className="logout-button" onClick={props.logOutUser}>
                     Logout
                   </button>

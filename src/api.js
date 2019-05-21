@@ -1,5 +1,5 @@
 import axios from 'axios'
-const url = 'http://jonnys-ncnews-bend.herokuapp.com/api/'
+const url = 'https://jonnys-ncnews-bend.herokuapp.com/api/'
 
 
 export const getArticles = (query) => {
