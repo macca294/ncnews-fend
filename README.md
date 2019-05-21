@@ -1,12 +1,10 @@
 # Jonny McGarty - NC News
 
 
-Here I have created a react front end of Northcoders NC News, an article and discussion web app that is connected to [my previously built back end api](https://github.com/macca294/ncnews.git), serving the required data.
+Here I have created a react front end of Northcoders NC News, an article and discussion web app connected to [my previously built back end api](https://github.com/macca294/ncnews.git), which serves the required data.
 
 
-
-
-[click here to see the hosted site with Netlify]( link )
+[click here to see the hosted site with Netlify]( https://jm-ncnews.netlify.com )
 
 ## Features Implemented
 
